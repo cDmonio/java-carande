@@ -1,0 +1,105 @@
+1er ejercicio:
+Dar una nota como float
+ nota esta entre 0 y 4: insuficiente
+Si nota esta entre 5 y 6: suf-bien
+Si nota esta entre 7 y 8: notable
+Si nota esta entre 9 y 10: excelente
+
+
+2o ejercicio:
+Entrar numero entre 0 y 9999
+Visualiza                                  numero de cifras
+No usar strings
+
+///////////////////////////////////////////////////
+
+1. Programa
+Introducir mes y ano
+mes = 1, 3, 5, 7, 8, 10, 12 --> 30 dias
+4, 6, 9, 11 --> 31 dias
+2 --> 28 o 29 dias
+
+son bisiestos todos los anos divisibles por 4
+excluyendo los divisibles por 100 pero no los
+de 400
+
+
+2. Diagrama y programa
+Queremos gestionar una cuenta corriente
+Aparecen opciones, 1.Crear cuenta, 2.Cuenta corriente, 3.Cuenta de ahorro
+1--> introducir dato numerico
+2 o 3 --> 1. abonar, 2.cargar, 3.mostrar saldo\
+solo con switch
+
+///////////////////////////////////////////////
+
+Realizar menu:
+
+1.Entrar
+2.Listar
+3.Busqueda
+4.Salir
+
+/////////////////////////////////////////////////
+
+D.F for() papel
+
+1. Menu con byte hasnext()
+2. Lo mismo con char
+3. Dar numero e indicar si tiene divisores
+4. DF, Dado un numero mostrar todos sus primos anteriores a el
+
+///////////////////////////////////////////////
+
+
+1. Dado un numero visualizar todos sus divisores
+Si no tiene divisores visualizar si es primo
+
+2.DF Entrar un numero y visualizar todos sus primos anteriores
+
+3.DF Entrar dia, mes tempmax y tempminima y mostrar temp maxy temp min con
+la fecha
+
+4. Inicializar string con caracteres, visualizar por pantalla,
+total de vocales, total numeros y total resto
+
+///////////////////////////////////////////////////
+
+1. entrar cadena por teclado y visualizar el total de palabras que contienen
+2. entrar cadena mostrar caracteres que no se encuentran en la cadena con indexOf
+3. entrar cadena y mostrar la palabra de mayor longitud
+4. entrar dos cadenas visualizar su concanetacion, 001122
+
+palabra = "hola que tal"
+concatenar espacio al final
+encontrar caracter (inicio) y caracter + espacio (final)
+guardar en variable subPalabra si subPalabra.length es menor
+
+///////////////////////////////////////////////////
+
+do {
+  i = cadena.indexOf(" "); 5
+  if (i!=-1){
+    c++ 1
+    palabra = cadena.substring(0, i); hola
+    System.out.println(palabra);
+    palabra="";
+    cadena=cadena.substring(i+1, cadena.length());
+  }
+
+} while (i>0);
+
+coje la primera palabra hasta el primer espacio
+la guarda en palabra
+borra la palabra que acaba de mostrar y
+repite el proceso hasta que solo quede un espacio en la cadena (vacio)
+
+---------------------------------------------------------------------------------
+
+Entrar cadena
+
+Visualizar cadena entrada
+
+Visualizar solo los valores numericos
+
+Salir
