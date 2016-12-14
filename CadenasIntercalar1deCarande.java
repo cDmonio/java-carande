@@ -12,23 +12,23 @@ public class CadenasIntercalar1 {
   int i=0, j=0, k=0, longMayor;
   String cadena1="", cadena2="", cadena3="";
 
-	Scanner in = new Scanner(System.in);
+  Scanner in = new Scanner(System.in);
 
   System.out.print("\n Da Cadena1: ");
   cadena1 = in.nextLine();
   System.out.print("\n Da Cadena2: ");
   cadena2 = in.nextLine();
 
-	if (cadena1.length()>cadena2.length()){ longMayor=cadena1.length();}
-	else{longMayor=cadena2.length();}
+  if (cadena1.length()>cadena2.length()){ longMayor=cadena1.length();}
+  else{longMayor=cadena2.length();}
 
 
   for(i=0;i<longMayor;i++){
-		if (i<cadena1.length()) {cadena3+=cadena1.charAt(i);}
-		System.out.println("i="+i);
-  	for(j=k;j<cadena2.length();j++){
+    if (i<cadena1.length()) {cadena3+=cadena1.charAt(i);}
+    System.out.println("i="+i);
+    for(j=k;j<cadena2.length();j++){
       cadena3+=cadena2.charAt(j);
-			System.out.println("j="+j+" k="+k);
+      System.out.println("j="+j+" k="+k);
       j=cadena2.length();
       k++;
 
