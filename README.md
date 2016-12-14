@@ -2,7 +2,7 @@
 
 #### Java con carande nunca fue mas divertido!!!
 
-- [x] practicaIfMandada
+- [ ] practicaIfMandada
 
 ```java
 if (practicaIfMandada) {
