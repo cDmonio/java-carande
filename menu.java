@@ -27,7 +27,7 @@ class menu {
   }
 
   public static void opcion(int op) {
-
+    
 
   }
 
