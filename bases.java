@@ -11,11 +11,11 @@ public class bases {
 
     do {
 
-    System.out.print("Introduce un numero [lo que quierah premoh]: ");
+    System.out.print("Introduce un numero [2-400]: ");
     entero = scanner.hasNextInt();
     if (entero) num = scanner.nextInt(); //introducir numero
     scanner.nextLine(); //limpiar scanner
-  } while (!entero);  //loopear mientras num no vale 2-400
+  } while (!(num>1&&num<401)||!entero);  //loopear mientras num no vale 2-400
 
     do {
 
