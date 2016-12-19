@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 class menu {
 
-  public static Scanner scanner = new Scanner(System.in); //declarar scanner
-  public static String str = "";  //declarar String 'str'
+  static Scanner scanner = new Scanner(System.in); //declarar scanner
+  static String str = "";  //declarar String 'str'
 
   public static void main(String[] args) {
     int op;
