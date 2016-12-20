@@ -6,7 +6,7 @@
 
 ```java
 if (practicaIfMandada) {
-  System.out.print("Estas aprovado");
+  System.out.print("Estas aprobado");
 } else {
   System.out.print("Puede que el año que viene amigo");
 }
