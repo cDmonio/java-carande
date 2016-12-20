@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class examen {
 
   public static void main(String[] args) {
