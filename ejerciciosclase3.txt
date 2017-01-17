@@ -94,7 +94,7 @@ la guarda en palabra
 borra la palabra que acaba de mostrar y
 repite el proceso hasta que solo quede un espacio en la cadena (vacio)
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Entrar cadena
 
@@ -103,3 +103,73 @@ Visualizar cadena entrada
 Visualizar solo los valores numericos
 
 Salir
+--------------------------------------------------------------------------------
+ej 1: todo locales
+entrar 2 datos numericos
+entrar operacion (suma resta, mult, div)
+
+controlar division por 0 (que no deje si un numero es 0 por la division)
+
+el resultado de la operacion, mostrarlo en el programa principal
+
+ej 2:
+- utilizar el metodo isdigit
+-utilizar indexOf
+        ejercicio del dni,
+menu 1: dar DNI (controlado) y devolver por               metodo su letra, solo la letra, el NIF
+           2: Salir
+devolver el dni entero, los
+
+--------------------------------------------------------------------------------
+public static void main (String[] args)
+
+  int op;
+
+  do {
+    op = menu();
+    Consola();
+    switch(op){
+      case 1: entradni(); break;
+    }
+
+  } while (op!=2);
+
+  entrardni. calculardni
+
+  declarar array, meter numeros random y contar los pares e impares
+
+n = indice array
+entrarNumeros()
+--------------------------------------------------------------------------------
+Bubble sort:
+
+for (int p = 0;p <= i-2;p++) {
+  for (int h = i-2;h >=p;h--) {
+    aux = notas[h];
+    if (notas[h] > noras[h+1]) {
+      notas[h]=notas[h+1];
+      notas[h+1]=aux;
+    }
+  }
+}
+
+'quick sort'
+do {
+      ok=true;
+      ini=i-1
+        while (ini>1) {
+          ini = ini/2
+          for (int l1 = 0;l1 <= fin-ini;l1++) {
+            int l2 = l1 + ini;
+            if (notas[l2] < notas[l1]) {
+              can - notas[l2];
+              notas[l2=notas[l1]]
+              notas[l1]=can
+              ok=false
+            }
+          }
+        }
+    } while (ok==false);
+
+array nombres [30]
+arrays notas[4][30]

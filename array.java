@@ -47,5 +47,6 @@ class array {
     System.out.println("\n\nPares: " + par + " --> " + (float) par/a.length * 100 + "%" + " --> "+ parS);
     System.out.println("Impares: " + impar + " --> " + (float) impar/a.length * 100 + "%" + " --> " + imparS + "\n");
 
+
   }
 }
