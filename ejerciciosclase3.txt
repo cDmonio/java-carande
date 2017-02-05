@@ -173,3 +173,17 @@ do {
 
 array nombres [30]
 arrays notas[4][30]
+
+Ejercicio 1:
+notas {
+    entradas
+    listado
+    ordenacion {
+        intercambio
+        burbuja
+        shell
+    }
+    busqueda {
+        binaria
+    }
+}
