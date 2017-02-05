@@ -1,21 +1,30 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 class arrayBi {
 
     public static void main(String[] args) {
-        int[] xy = introducir();
-        System.out.println(xy[0]+" "+xy[1]);
+        crearArray();
+
+
+
     }
 
-    public static int[] introducir() { // introducir longitud array y lo devuelve
+    public static int[][] crearArray() {
       Scanner scanner = new Scanner(System.in);
 
-      try { // controla InputMismatchException con un try, catch
-        System.out.print("Introduce numero alumnos y numero de notas: ");
-        int[] xy = {scanner.nextInt(), scanner.nextInt()};
-        return xy;
+      try {
+          System.out.print("Introduce el numero alumnos: ");
+          int alumnos = scanner.nextInt();
+          System.out.print("Introduce el numero de notas por alumno: ");
+          int notas = scanner.nextInt();
 
-      } catch (java.util.InputMismatchException e) { return introducir(); }
+          int[][] arrayClase = new int[alumnos][notas+1];
+          System.out.println(arrayClase.length+" "+arrayClase[0].length);
+          System.out.println(Arrays.deepToString(arrayClase));
+          return arrayClase;
+
+      } catch (java.util.InputMismatchException e) { return crearArray(); }
 
     }
 }
