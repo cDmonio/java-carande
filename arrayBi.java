@@ -6,9 +6,10 @@ class arrayBi {
 
     public static void main(String[] args) {
         double[][] array = fillArray(createArray());
+        System.out.println(Arrays.deepToString(array));
         sort(array);
-
-
+        System.out.println(Arrays.deepToString(array));
+        shellSort(array);
     }
 
     public static double[][] createArray() {
@@ -43,7 +44,7 @@ class arrayBi {
             array[a][array[a].length-1] = Math.round(total/(array[a].length-1)*100)/100.0;
             total = 0;
         }
-        System.out.println(Arrays.deepToString(array));
+        // System.out.println(Arrays.deepToString(array));
         return array;
     }
 
@@ -53,8 +54,19 @@ class arrayBi {
         //         return Double.compare(b[a.length-1], a[a.length-1]);
         //     }
         // });
-        Arrays.sort(array, (a, b) -> Double.compare(b[b.length-1], a[a.length-1]));
-        System.out.println(Arrays.deepToString(array));
+        Arrays.sort(array, (a, b) -> Double.compare(a[a.length-1], b[b.length-1]));
+        // System.out.println(Arrays.deepToString(array));
+    }
+
+
+    public static void shellSort(double[][] array) {
+        int y = array[0].length-1;
+
+        for (int x = 0 ; x<array.length ; x++ ) {
+            System.out.println(array[x][y]);
+            
+        }
+
     }
 
     // Quick sort
