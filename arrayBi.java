@@ -1,15 +1,19 @@
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Comparator;
 
 class arrayBi {
 
     public static void main(String[] args) {
-        double[][] array = fillArray(createArray());
-        System.out.println(Arrays.deepToString(array));
-        sort(array);
-        System.out.println(Arrays.deepToString(array));
-        shellSort(array);
+
+        // double[][] array = fillArray(createArray());
+        // System.out.println(Arrays.deepToString(array)+"\n");
+        // sort(array);
+        // insertionSort(array);
+        // shellSort(array);
+        // bubbleSort(array);
+        // System.out.println(Arrays.deepToString(array));
+        // binarySearch(array);
+
     }
 
     public static double[][] createArray() {
@@ -21,22 +25,17 @@ class arrayBi {
             System.out.print("Introduce el numero de notas por alumno: ");
             int notas = scanner.nextInt();
 
-            double[][] arrayClase = new double[alumnos][notas+1];
-            // System.out.println(arrayClase.length+" "+arrayClase[0].length);
-            // System.out.println(Arrays.deepToString(arrayClase));
-            return arrayClase;
+            double[][] array = new double[alumnos][notas+1];
+            return array;
 
         } catch (java.util.InputMismatchException e) { return createArray(); }
-
     }
 
     public static double[][] fillArray(double[][] array) {
         double total = 0;
 
         for (int a = 0 ; a < array.length ; a++) {
-            // System.out.println(a);
             for (int n = 0 ; n < array[a].length-1 ; n++) {
-                // System.out.println("\t"+n);
                 array[a][n] = (int) (Math.random() * 1001) / 100.0;
                 total += array[a][n];
             }
@@ -44,67 +43,81 @@ class arrayBi {
             array[a][array[a].length-1] = Math.round(total/(array[a].length-1)*100)/100.0;
             total = 0;
         }
-        // System.out.println(Arrays.deepToString(array));
         return array;
     }
 
     public static void sort(double[][] array) {
-        // Arrays.sort(array, new Comparator<double[]>() {
-        //     public int compare(double[] a, double[] b) {
-        //         return Double.compare(b[a.length-1], a[a.length-1]);
-        //     }
-        // });
         Arrays.sort(array, (a, b) -> Double.compare(a[a.length-1], b[b.length-1]));
-        // System.out.println(Arrays.deepToString(array));
     }
 
+    public static void insertionSort(double[][] array) {
+        int y = array[0].length-1; // ultima posicion de cada array (media)
+        double[] temp;
+
+        for (int x = 0 ; x<array.length-1 ; x++ ) { // mira por cada array[]
+            while (array[x][y] > array[x+1][y]) {   // mira la ultima posicion de cada array
+                temp = array[x];
+                array[x] = array[x+1];
+                array[x+1] = temp;
+                x = 0;
+            }
+        }
+    }
 
     public static void shellSort(double[][] array) {
         int y = array[0].length-1;
+        double[] temp;
+        int gap = array.length/2;
 
-        for (int x = 0 ; x<array.length ; x++ ) {
-            System.out.println(array[x][y]);
-            
+        while (gap > 1) {
+            for (int x = 0 ; x<array.length-gap ; x++ ) {
+                if (array[x][y] > array[x+gap][y]) {
+                    temp = array[x];
+                    array[x] = array[x+gap];
+                    array[x+gap] = temp;
+                }
+            }
+            gap = gap/2;
         }
-
+        if (gap == 1) insertionSort(array);
     }
 
-    // Quick sort
-    public static void swap(int[] array, int left, int right) {
-        int t = array[left];
-        array[left] = array[right];
-        array[right] = t;
-    }
+    public static void bubbleSort(double[][] array) {
+        int y = array[0].length-1;
+        double[] temp;
+        int n = array.length;
 
-    public static void quicksort(int [] array) {
-        quicksort(array, 0, array.length-1);
-    }
-
-    public static void quicksort(int[] array, int left, int right) {
-        if (left >= right) return;
-
-        int pivot = array[(left + right) / 2];
-        int index = partition(array, left, right, pivot);
-        quicksort(array, left, index - 1);
-        quicksort(array, index, right);
-    }
-
-    public static int partition(int[] array, int left, int right, int pivot) {
-        while (left <= right) {
-            while (array[left] < pivot) {
-                left++;
+        while (n>1) {
+            for (int x = 0 ; x<n-1 ; x++) {
+                if (array[x][y] > array[x+1][y]) {
+                    temp = array[x];
+                    array[x] = array[x+1];
+                    array[x+1] = temp;
+                }
             }
-
-            while (array[right] > pivot) {
-                right--;
-            }
-
-            if (left <= right) {
-                 swap(array, left, right);
-                 left++;
-                 right--;
-            }
+            n--;
         }
-        return left;
     }
+
+    public static void binarySearch(double[][] array) {
+        Scanner scanner = new Scanner(System.in);
+        int y = array[0].length - 1;
+        int l = 0;
+        int r = array.length-1;
+
+        System.out.print("\nIntroduce la nota media a buscar: ");
+        double n = scanner.nextDouble();
+
+        while (!(l>r)) {
+            int m = (l+r) / 2;
+            if (array[m][y] > n) r = m - 1;
+            else if (array[m][y] < n) l = m + 1;
+            else if (array[m][y] == n) {
+                System.out.println("Array["+m+"] con nota media "+n+": "+Arrays.toString(array[m]));
+                break;
+            }
+            if (l>r) System.out.println("Busqueda fallida D:");
+        }
+    }
+
 }
