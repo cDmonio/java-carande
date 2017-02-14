@@ -4,16 +4,44 @@ import java.util.Arrays;
 class arrayBi {
 
     public static void main(String[] args) {
+        int op;
+        double[][] array = fillArray(createArray());
 
-        // double[][] array = fillArray(createArray());
-        // System.out.println(Arrays.deepToString(array)+"\n");
-        // sort(array);
-        // insertionSort(array);
-        // shellSort(array);
-        // bubbleSort(array);
-        // System.out.println(Arrays.deepToString(array));
-        // binarySearch(array);
+        do {
+            menu();
+            op = introducirOp();
+            switch (op) {
+                case 1: array = fillArray(createArray()); break;
+                case 2: System.out.println("Array:\n"+Arrays.deepToString(array)); break;
+                case 3: insertionSort(array); break;
+                case 4: shellSort(array); break;
+                case 5: bubbleSort(array); break;
+                case 6: binarySearch(array); break;
+                default: System.out.println("Opcion no valida"); break;
+            }
+        } while (op!=7);
+    }
 
+    public static void menu() {
+        System.out.println("\n\t\033[4mMenu\033[0m\n");
+        System.out.println("    1. Crear Array");
+        System.out.println("    2. Mostrar Array");
+        System.out.println("    Ordenar:");
+        System.out.println("        3. Insertion Sort");
+        System.out.println("        4. Shell Sort");
+        System.out.println("        5. Bubble Sort");
+        System.out.println("    6. Busqueda binaria");
+        System.out.println("    7. Salir\n");
+    }
+
+    public static int introducirOp() {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Introduce una opcion: ");
+            return scanner.nextInt();
+
+        } catch (java.util.InputMismatchException e) { return introducirOp(); }
     }
 
     public static double[][] createArray() {
