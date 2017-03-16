@@ -4,10 +4,10 @@ class Stack {
     public static Node firstNode;
 
     public static void main(String[] args) {
-        for (int i=0 ; i<4 ; i++) {
+        for (int i=0 ; i<100 ; i++) {
             firstNode = createNode();
-            firstNode.info();
         }
+        printStack();
     }
 
     public static Node createNode() {
@@ -19,6 +19,32 @@ class Stack {
             return node;
         }
     }
+
+    public static void printStack() {
+        Node node = firstNode;
+        System.out.format("\n    %-16s %-8s %s\n", "Self:", "Info:", "Next:");
+        while (node!=null) {
+            node.info();
+            node = node.next;
+        }
+        System.out.println("\n");
+    }
+
+    public static void search() {
+        Node node = firstNode;
+        while (node!=null) {
+
+        }
+    }
+
+    // Falta insertar, busqueda y borrar
+
+    // Para implementar la insercion necesito primero saber el nodo
+    // anterior a la posicion deseada con busqueda
+
+    // Para borrar un nodo necesito saber si es el final, si no lo es simplemente
+    // necesito borrar y modificar el puntero del anterior al posterior
+    // del que borro
 }
 
 class Node {
@@ -36,8 +62,6 @@ class Node {
 
     public void info() {
         System.out.println();
-        System.out.format("%-8s %-16s %s\n", "Info:", "Self:", "Next:");
-        System.out.format("%-8s %-16s %s\n", info, this, next);
+        System.out.format("    %-16s %-8s %s", this, info, next);
     }
-
 }
