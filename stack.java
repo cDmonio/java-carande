@@ -1,25 +1,29 @@
 import java.util.Scanner;
 
 class Stack {
+    public static Node firstNode;
 
     public static void main(String[] args) {
-        Node a = new Node("hola");
-        Node b = new Node("que tal", a);
-
-        System.out.println(a.info+"\n"+a.next);
-        System.out.println();
-        System.out.println(b.info+"\n"+b.next);
-
+        for (int i=0 ; i<4 ; i++) {
+            firstNode = createNode();
+            firstNode.info();
+        }
     }
 
     public static Node createNode() {
-        return null;
+        if (firstNode == null) {
+            Node node = new Node("test");
+            return node;
+        } else {
+            Node node = new Node("test", firstNode);
+            return node;
+        }
     }
 }
 
 class Node {
     String info;
-    Node next = null;
+    Node next;
 
     public Node(String info) {
         this.info = info;
@@ -31,7 +35,9 @@ class Node {
     }
 
     public void info() {
-        System.out.println("{"+info+"}");
+        System.out.println();
+        System.out.format("%-8s %-16s %s\n", "Info:", "Self:", "Next:");
+        System.out.format("%-8s %-16s %s\n", info, this, next);
     }
 
 }
