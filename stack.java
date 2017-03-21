@@ -4,15 +4,20 @@ class Stack {
     public static Node firstNode;
 
     public static void main(String[] args) {
-        for (int i=0 ; i<100 ; i++) {
+        for (int i=0 ; i<5 ; i++) {
             firstNode = createNode();
         }
         printStack();
+
+        deleteNode(searchNode("testa"));
+
+        printStack();
+
     }
 
     public static Node createNode() {
         if (firstNode == null) {
-            Node node = new Node("test");
+            Node node = new Node("testa");
             return node;
         } else {
             Node node = new Node("test", firstNode);
@@ -27,16 +32,32 @@ class Stack {
             node.info();
             node = node.next;
         }
-        System.out.println("\n");
+        System.out.println();
     }
 
-    public static void search() {
+    public static Node searchNode(String s) {
         Node node = firstNode;
         while (node!=null) {
-
+            if (node.info == s) {
+                return node;
+            }
+            node = node.next;
         }
+        System.err.println("\nNodo no encontrado");
+        return null;
     }
 
+    public static void deleteNode(Node d) {
+        Node node = firstNode;
+        while (node!=null) {
+            if (firstNode == d) {
+                firstNode = d.next;
+            } else if (node.next == d) {
+                node.next = d.next;
+            }
+            node = node.next;
+        }
+    }
     // Falta insertar, busqueda y borrar
 
     // Para implementar la insercion necesito primero saber el nodo
