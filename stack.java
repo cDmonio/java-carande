@@ -4,30 +4,53 @@ class Stack {
     public static Node firstNode;
 
     public static void main(String[] args) {
-        for (int i=0 ; i<5 ; i++) {
-            firstNode = createNode();
-        }
-        printStack();
 
-        deleteNode(searchNode("testa"));
+        int op;
+        Scanner scan = new Scanner(System.in);
 
-        printStack();
+        do {
+            menu();
+            System.out.print("    Introduce opcion: ");
+            op = scan.nextInt();
+            switch (op) {
+                case 1: firstNode = createNode(); break;
+                case 2: printStack(); break;
+                case 3: delSingleNode(); break;
+                case 4: delMultipleNodes(); break;
+            }
 
+        } while (op!=5);
+    }
+
+    public static String introducir() {
+        Scanner scan = new Scanner(System.in);
+        return scan.nextLine();
     }
 
     public static Node createNode() {
+        System.out.print("\n    Info para el nodo: ");
+        String info = introducir();
         if (firstNode == null) {
-            Node node = new Node("testa");
+            Node node = new Node(info);
             return node;
         } else {
-            Node node = new Node("test", firstNode);
+            Node node = new Node(info, firstNode);
             return node;
         }
+    }
+
+    public static void menu() {
+        System.out.println("\n\t\033[4mMenu\033[0m\n");
+        System.out.println("    1. Crear nodo");
+        System.out.println("    2. Mostrar stack");
+        System.out.println("    3. Borrar nodo");
+        System.out.println("    4. Borrar nodo(s)");
+        System.out.println("    5. Salir\n");
     }
 
     public static void printStack() {
         Node node = firstNode;
-        System.out.format("\n    %-16s %-8s %s\n", "Self:", "Info:", "Next:");
+        System.out.format("\n    %-16s %-10s %s\n", "Self:", "Info:", "Next:");
         while (node!=null) {
             node.info();
             node = node.next;
@@ -35,19 +58,7 @@ class Stack {
         System.out.println();
     }
 
-    public static Node searchNode(String s) {
-        Node node = firstNode;
-        while (node!=null) {
-            if (node.info == s) {
-                return node;
-            }
-            node = node.next;
-        }
-        System.err.println("\nNodo no encontrado");
-        return null;
-    }
-
-    public static void deleteNode(Node d) {
+    public static void delete(Node d) {
         Node node = firstNode;
         while (node!=null) {
             if (firstNode == d) {
@@ -58,14 +69,40 @@ class Stack {
             node = node.next;
         }
     }
-    // Falta insertar, busqueda y borrar
 
-    // Para implementar la insercion necesito primero saber el nodo
-    // anterior a la posicion deseada con busqueda
+    public static void delSingleNode() {
+        Node node = firstNode;
+        System.out.print("\n    Info del nodo a borrar: ");
+        String s = introducir();
+        while (node!=null) {
+            if (node.info.equals(s)) {
+                node.info();
+                System.out.print(" ==> Eliminar este nodo? (y/n): ");
+                if (introducir().equals("y")) {
+                    delete(node);
+                }
+                node = null;
+            } else {
+                node = node.next;
+            }
+        }
+    }
 
-    // Para borrar un nodo necesito saber si es el final, si no lo es simplemente
-    // necesito borrar y modificar el puntero del anterior al posterior
-    // del que borro
+    public static void delMultipleNodes() {
+        Node node = firstNode;
+        System.out.print("\n    Info del nodo(s) a borrar: ");
+        String s = introducir();
+        while(node!=null) {
+            if (node.info.equals(s)) {
+                node.info();
+                System.out.print(" ==> Eliminar este nodo? (y/n): ");
+                if (introducir().equals("y")) {
+                    delete(node);
+                }
+            }
+            node = node.next;
+        }
+    }
 }
 
 class Node {
@@ -83,6 +120,6 @@ class Node {
 
     public void info() {
         System.out.println();
-        System.out.format("    %-16s %-8s %s", this, info, next);
+        System.out.format("    %-16s %-10s %s", this, info, next);
     }
 }
