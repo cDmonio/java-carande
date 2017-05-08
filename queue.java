@@ -4,21 +4,20 @@ class QueueX2 {
     public static NodeX2 head;
 
     public static void main(String[] args) {
+
         NodeX2 a = createNode();
         NodeX2 b = createNode();
         NodeX2 c = createNode();
-        // NodeX2 d = createNode();
-        // NodeX2 e = createNode();
+        printQueue();
 
-        System.out.println();
-        System.out.format("%9s %24s %21s", "Prev:", "Nodo:", "Next:");
-        System.out.println();
-        a.info();
-        b.info();
-        c.info();
-        // d.info();
-        // e.info();
-        System.out.println();
+
+        deleteNode(b);
+        //deleteNode(a);
+        // deleteNode(b);
+
+
+
+        printQueue();
 
     }
 
@@ -36,6 +35,30 @@ class QueueX2 {
             head.prev = node;
             return node;
         }
+    }
+
+    public static void printQueue() {
+        NodeX2 node = head;
+        System.out.format("\n%9s %25s %20s", "Prev:", "Nodo:", "Next:\n");
+        do {
+            if (node!=null) {
+                node.info();
+                node = node.next;
+            }
+        } while (node!=head);
+        System.out.println();
+    }
+
+    public static void deleteNode(NodeX2 node) {
+        if (node == head) {
+            if (head==node.next) {
+                head = null;
+            } else {
+                head = node.next;
+            }
+        }
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
     }
 }
 
